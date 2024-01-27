@@ -47,13 +47,18 @@ struct ContentView: View {
                         VStack {
                             Text(item.name)
                                 .font(.headline)
+                                .foregroundStyle(.white)
                             Text(item.type)
+                                .foregroundStyle(.white)
                         }
                         Spacer()
                         Text(item.amount, format: .currency(code: Locale.current.currency?.identifier ?? "USD"))
+                            .foregroundStyle(.white)
                     }
+                    .listRowBackground(item.amount > 10 ? (item.amount > 100 ? Color.red : Color.blue) : Color.green)
                 }
                 .onDelete(perform: removeItems)
+                
             }
             .navigationTitle("iExpense")
             .toolbar {
