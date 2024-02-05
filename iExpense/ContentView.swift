@@ -87,15 +87,10 @@ struct ContentView: View {
                 }
                 .headerProminence(.increased)
             }
-            .navigationTitle("iExpense")
-            .toolbar {
-                Button("Add Expense", systemImage: "plus") {
-                    showingAddExpense = true
-                }
+            NavigationLink("Add Expense") {
+                AddView(expenses: expenses)
             }
-        }
-        .sheet(isPresented: $showingAddExpense) {
-            AddView(expenses: expenses)
+            .navigationTitle("iExpense")
         }
     }
     
